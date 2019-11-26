@@ -6,11 +6,11 @@
 /*   By: jcampos- <juancampos2610@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 01:42:51 by jcampos-          #+#    #+#             */
-/*   Updated: 2019/11/26 12:51:19 by jcampos-         ###   ########.fr       */
+/*   Updated: 2019/11/26 14:43:34 by jcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 50
 

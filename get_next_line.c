@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcampos- <jcampos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcampos- <juancampos2610@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/22 16:22:56 by jcampos-          #+#    #+#             */
-/*   Updated: 2019/11/22 16:22:56 by jcampos-         ###   ########.fr       */
+/*   Created: 2019/11/26 15:43:07 by jcampos-          #+#    #+#             */
+/*   Updated: 2019/11/26 15:44:24 by jcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*copy_save(char **file,int fd)
+char	*copy_save(char **file, int fd)
 {
 	int		i;
 	char	*str;
@@ -21,7 +21,7 @@ char	*copy_save(char **file,int fd)
 	i = 0;
 	while (file[fd][i] != '\n')
 		i++;
-	if(!(str = malloc(sizeof(char) * i + 1)))
+	if (!(str = malloc(sizeof(char) * i + 1)))
 		return (NULL);
 	i = -1;
 	while (file[fd][++i] != '\n')
@@ -35,7 +35,7 @@ char	*copy_save(char **file,int fd)
 
 int		make_line(char **file, int fd, char **line)
 {
-	if(ft_strchr(file[fd], '\n'))
+	if (ft_strchr(file[fd], '\n'))
 	{
 		*line = copy_save(file, fd);
 		return (1);
@@ -49,7 +49,20 @@ int		make_line(char **file, int fd, char **line)
 	}
 }
 
-int	get_next_line(const int fd, char **line)
+int		handle_ret(int ret, char **file, char **line, int fd)
+{
+	if (ret == -1)
+		return (-1);
+	if (ret == 0 && (file[fd] == NULL || file[fd][0] == '\0'))
+	{
+		*line = ft_strdup("");
+		return (0);
+	}
+	else
+		return (make_line(file, fd, line));
+}
+
+int		get_next_line(const int fd, char **line)
 {
 	char		buff[BUFF_SIZE + 1];
 	int			ret;
@@ -69,12 +82,5 @@ int	get_next_line(const int fd, char **line)
 		if (ft_strchr(buff, '\n'))
 			break ;
 	}
-	if (ret == -1)
-		return (-1);
-	if (ret == 0 && (file[fd] == NULL || file[fd][0] == '\0'))
-	{
-		*line = ft_strdup("");
-		return (0);
-	}
-	return (make_line(file, fd, line));
+	return (handle_ret(ret, file, line, fd));
 }

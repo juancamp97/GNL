@@ -6,7 +6,7 @@
 /*   By: jcampos- <juancampos2610@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 21:28:46 by jcampos-          #+#    #+#             */
-/*   Updated: 2019/11/26 01:49:24 by jcampos-         ###   ########.fr       */
+/*   Updated: 2019/11/26 14:40:27 by jcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substring);
 }
 
-int	ft_strlen(const char *str)
+int		ft_strlen(const char *str)
 {
 	int	i;
 
