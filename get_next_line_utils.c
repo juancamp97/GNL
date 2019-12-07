@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcampos- <juancampos2610@gmail.com>        +#+  +:+       +#+        */
+/*   By: jcampos- <jcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 21:28:46 by jcampos-          #+#    #+#             */
-/*   Updated: 2019/11/26 14:40:27 by jcampos-         ###   ########.fr       */
+/*   Updated: 2019/12/07 13:49:15 by jcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (0);
 	j = ft_strlen(s2);
 	l = 0;
-	if (!(ns = (char *)malloc(sizeof(char) * (ft_strlen(s1) + (j + 1)))))
+	i = ft_strlen(s1);
+	if (!(ns = (char *)malloc(sizeof(char) * (i + j + 1))))
 		return (0);
-	while (l < (unsigned int)ft_strlen(s1))
+	while (l < i)
 	{
 		ns[l] = s1[l];
 		l++;
